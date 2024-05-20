@@ -95,7 +95,7 @@ if selected == 'Data Analysis':
     st.markdown('A low negative correlation between Age and SalePrice')
 
 elif selected == 'Machine Learning':
-    st.markdown('This housing price predictor has been built on a supervised linear regression machine learning algorithm. The data used to train this model is the same as the one used for analysis. Predict a house price by filling in the requirements below!')
+    st.markdown('This housing price predictor has been built on a supervised linear regression machine learning algorithm. The data used to train this model is the same as the one used for analysis. Predict a house price by filling in the requirements below! [Here](https://github.com/StormzzG/machine-learning) is a link to a python notebook used to build this model.')
     st.markdown('<style>div.block-container{padding-bottom: 3rem;}<style>',unsafe_allow_html=True)
     with open('PricePredictor2.joblib', 'rb') as f:
         model = joblib.load(f)
@@ -138,3 +138,7 @@ elif selected == 'Machine Learning':
         elif year and rooms and quality and garage and grliv:
             prediction = model.predict([[year, rooms, quality, garage, grliv]])
             st.write(f"Predicted Price: $ {float(np.round(prediction, 2))}")
+
+    st.subheader('Sample Data used for Training and Testing')
+    df2 = pd.read_csv('Housing.csv')
+    st.dataframe(df2.head().style.background_gradient(cmap='summer'))
