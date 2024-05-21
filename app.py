@@ -17,7 +17,7 @@ selected = option_menu(
     orientation='horizontal'
 )
 
-if selected == 'Data Analysis':
+if selected == 'Data Visualization':
     df = pd.read_csv('ames.csv')
 
     col1, col2 = st.columns((2))
