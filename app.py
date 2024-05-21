@@ -12,7 +12,7 @@ st.markdown('<style>div.block-container{padding-top:3rem;}<style>',unsafe_allow_
 
 selected = option_menu(
     menu_title=None,
-    options=['Data Analysis', 'Machine Learning'],
+    options=['Data Visualization', 'Machine Learning'],
     default_index=0,
     orientation='horizontal'
 )
@@ -141,4 +141,5 @@ elif selected == 'Machine Learning':
 
     st.subheader('Sample Data used for Training and Testing')
     df2 = pd.read_csv('Housing.csv')
-    st.dataframe(df2.head().style.background_gradient(cmap='summer'))
+    df3 = df2.drop(['OverallCond'], axis=1)
+    st.dataframe(df3.head().style.background_gradient(cmap='summer'))
