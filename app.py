@@ -54,15 +54,15 @@ if selected == 'Data Visualization':
     fig4 = px.imshow(corr_matrix, text_auto=True)
     st.plotly_chart(fig4,use_container_width=True)
 
-    st.sidebar.header('Welcome')
-    condition = st.sidebar.multiselect('Choose Overall Condition', df['OverallCond'].unique())
+    # st.sidebar.header('Welcome')
+
+    st.subheader('Effect of Overall Condition on SalePrice')
+    condition = st.multiselect('Choose Overall Condition', df['OverallCond'].unique())
     if not condition:
         df2 = df.copy()
     else:
         df2 = df[df['OverallCond'].isin(condition)]
-
-    st.subheader('Effect of Overall Condition on SalePrice')
-    st.markdown('This histogram shows the distribution of Sale Price based on the condition you have selected on the Sidebar MultiSelect')
+    st.markdown('This histogram shows the distribution of Sale Price based on the condition you have selected.')
     mean2 = np.mean(df2['SalePrice'])
     median2 = np.median(df2['SalePrice'])
     fig5 = px.histogram(df2, x='SalePrice')
