@@ -54,8 +54,6 @@ if selected == 'Data Visualization':
     fig4 = px.imshow(corr_matrix, text_auto=True)
     st.plotly_chart(fig4,use_container_width=True)
 
-    # st.sidebar.header('Welcome')
-
     st.subheader('Effect of Overall Condition on SalePrice')
     condition = st.multiselect('Choose Overall Condition', df['OverallCond'].unique())
     if not condition:
